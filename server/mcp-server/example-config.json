@@ -1,0 +1,44 @@
+{
+  "// Example configuration for different MCP clients": "",
+  
+  "// For Claude Desktop (add to claude_desktop_config.json)": {
+    "mcpServers": {
+      "anythingllm-rag": {
+        "command": "node",
+        "args": ["/absolute/path/to/anything-llm/server/mcp-server/index.js"],
+        "env": {
+          "NODE_ENV": "production"
+        }
+      }
+    }
+  },
+  
+  "// For AnythingLLM (add to anythingllm_mcp_servers.json)": {
+    "mcpServers": {
+      "anythingllm-rag": {
+        "command": "node",
+        "args": ["./mcp-server/index.js"],
+        "env": {
+          "NODE_ENV": "production"
+        },
+        "transportType": "stdio",
+        "anythingllm": {
+          "autoStart": true
+        }
+      }
+    }
+  },
+  
+  "// For other MCP clients": {
+    "servers": [
+      {
+        "name": "anythingllm-rag",
+        "transport": {
+          "type": "stdio",
+          "command": "node",
+          "args": ["/path/to/server/mcp-server/index.js"]
+        }
+      }
+    ]
+  }
+}

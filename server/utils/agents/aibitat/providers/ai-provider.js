@@ -12,7 +12,7 @@
 
 const { ChatOpenAI } = require("@langchain/openai");
 const { ChatAnthropic } = require("@langchain/anthropic");
-const { ChatBedrockConverse } = require("@langchain/aws");
+// const { ChatBedrockConverse } = require("@langchain/aws"); // Disabled for lightweight version
 const { ChatOllama } = require("@langchain/community/chat_models/ollama");
 const { toValidNumber } = require("../../../http");
 const { getLLMProviderClass } = require("../../../helpers");
@@ -116,21 +116,21 @@ class Provider {
           ),
           ...config,
         });
-      case "bedrock":
-        // Grab just the credentials from the bedrock provider
-        // using a closure to avoid circular dependency + to avoid instantiating the provider
-        const credentials = (() => {
-          const AWSBedrockProvider = require("./bedrock");
-          const bedrockProvider = new AWSBedrockProvider();
-          return bedrockProvider.credentials;
-        })();
+      // case "bedrock": // Disabled for lightweight version
+      //   // Grab just the credentials from the bedrock provider
+      //   // using a closure to avoid circular dependency + to avoid instantiating the provider
+      //   const credentials = (() => {
+      //     const AWSBedrockProvider = require("./bedrock");
+      //     const bedrockProvider = new AWSBedrockProvider();
+      //     return bedrockProvider.credentials;
+      //   })();
 
-        return new ChatBedrockConverse({
-          model: process.env.AWS_BEDROCK_LLM_MODEL_PREFERENCE,
-          region: process.env.AWS_BEDROCK_LLM_REGION,
-          credentials: credentials,
-          ...config,
-        });
+      //   return new ChatBedrockConverse({
+      //     model: process.env.AWS_BEDROCK_LLM_MODEL_PREFERENCE,
+      //     region: process.env.AWS_BEDROCK_LLM_REGION,
+      //     credentials: credentials,
+      //     ...config,
+      //   });
       case "fireworksai":
         return new ChatOpenAI({
           apiKey: process.env.FIREWORKS_AI_LLM_API_KEY,

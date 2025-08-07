@@ -10,3 +10,18 @@ aws_cf_deploy_anything_llm.json
 yarn.lock
 *.bak
 .idea
+
+# Logs
+*.log
+collector.log
+lightweight.log
+maintenance.log
+startup.log
+
+# Temporary and backup files
+*.original
+package.json.original
+
+# Data directories
+chroma_data/
+claude/

@@ -7,7 +7,7 @@ const { isValidUrl, safeJsonParse } = require("../utils/http");
 const prisma = require("../utils/prisma");
 const { v4 } = require("uuid");
 const { MetaGenerator } = require("../utils/boot/MetaGenerator");
-const { PGVector } = require("../utils/vectorDbProviders/pgvector");
+// const { PGVector } = require("../utils/vectorDbProviders/pgvector"); // Disabled for lightweight version
 const { NativeEmbedder } = require("../utils/EmbeddingEngines/native");
 const { getBaseLLMProviderModel } = require("../utils/helpers");
 
@@ -447,9 +447,9 @@ const SystemSettings = {
       AstraDBApplicationToken: process?.env?.ASTRA_DB_APPLICATION_TOKEN,
       AstraDBEndpoint: process?.env?.ASTRA_DB_ENDPOINT,
 
-      // PGVector Keys
-      PGVectorConnectionString: !!PGVector.connectionString() || false,
-      PGVectorTableName: PGVector.tableName(),
+      // PGVector Keys - Disabled for lightweight version
+      // PGVectorConnectionString: !!PGVector.connectionString() || false,
+      // PGVectorTableName: PGVector.tableName(),
     };
   },
 

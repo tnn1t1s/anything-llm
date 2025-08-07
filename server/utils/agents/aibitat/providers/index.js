@@ -12,7 +12,7 @@ const MistralProvider = require("./mistral.js");
 const GenericOpenAiProvider = require("./genericOpenAi.js");
 const PerplexityProvider = require("./perplexity.js");
 const TextWebGenUiProvider = require("./textgenwebui.js");
-const AWSBedrockProvider = require("./bedrock.js");
+// const AWSBedrockProvider = require("./bedrock.js"); // Disabled for lightweight version
 const FireworksAIProvider = require("./fireworksai.js");
 const DeepSeekProvider = require("./deepseek.js");
 const LiteLLMProvider = require("./litellm.js");
@@ -41,7 +41,7 @@ module.exports = {
   DeepSeekProvider,
   PerplexityProvider,
   TextWebGenUiProvider,
-  AWSBedrockProvider,
+  // AWSBedrockProvider, // Disabled for lightweight version
   FireworksAIProvider,
   LiteLLMProvider,
   ApiPieProvider,

@@ -1,0 +1,26 @@
+{
+  "name": "anythingllm-rag-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server that exposes AnythingLLM's RAG capabilities for external applications",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "NODE_ENV=development node index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "rag",
+    "anythingllm",
+    "embeddings",
+    "vector-search"
+  ],
+  "author": "AnythingLLM",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.11.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
